@@ -35,6 +35,14 @@ Navbar
   }
 }
 
+.navbar-title {
+  font-weight: 700;
+  text-shadow: black 0.2rem 0.2rem 0.5rem;
+  font-family: 'Orbitron', sans-serif;
+  opacity: 1;
+  scale: 1;
+}
+
 /* ==========================================================================
 Logo styles
 ========================================================================== */
@@ -43,6 +51,6 @@ Logo styles
   width: 45px;
   display: inline-block;
   vertical-align: middle;
-  background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
+  background: url('../../../content/images/logo.png') no-repeat center center;
   background-size: contain;
 }

@@ -1,0 +1,97 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-stocks-heading" data-cy="StocksCreateUpdateHeading">Create or edit a Stocks</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_stockname">Stockname</label>
+          <input type="text" class="form-control" name="stockname" id="field_stockname" data-cy="stockname" formControlName="stockname" />
+          <div *ngIf="editForm.get('stockname')!.invalid && (editForm.get('stockname')!.dirty || editForm.get('stockname')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('stockname')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_market">Market</label>
+          <select class="form-control" name="market" formControlName="market" id="field_market" data-cy="market">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let market of marketValues" [value]="market">market</option>
+          </select>
+          <div *ngIf="editForm.get('market')!.invalid && (editForm.get('market')!.dirty || editForm.get('market')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('market')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_highPrice">High Price</label>
+          <input type="number" class="form-control" name="highPrice" id="field_highPrice" data-cy="highPrice" formControlName="highPrice" />
+          <div *ngIf="editForm.get('highPrice')!.invalid && (editForm.get('highPrice')!.dirty || editForm.get('highPrice')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('highPrice')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('highPrice')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_lowPrice">Low Price</label>
+          <input type="number" class="form-control" name="lowPrice" id="field_lowPrice" data-cy="lowPrice" formControlName="lowPrice" />
+          <div *ngIf="editForm.get('lowPrice')!.invalid && (editForm.get('lowPrice')!.dirty || editForm.get('lowPrice')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('lowPrice')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('lowPrice')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_buyPrice">Buy Price</label>
+          <input type="number" class="form-control" name="buyPrice" id="field_buyPrice" data-cy="buyPrice" formControlName="buyPrice" />
+          <div *ngIf="editForm.get('buyPrice')!.invalid && (editForm.get('buyPrice')!.dirty || editForm.get('buyPrice')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('buyPrice')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('buyPrice')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

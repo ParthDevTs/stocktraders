@@ -1,0 +1,21 @@
+entity Stocks{
+	stockname String required,
+    market Market required,
+    highPrice Float required,
+	lowPrice Float required,
+    buyPrice Float required,
+}
+
+enum Market{
+	NSE,BSE
+}
+
+relationship ManyToOne {
+	Stocks{user(id)} to User
+}
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct except Stocks
+
+
+service all with serviceImpl

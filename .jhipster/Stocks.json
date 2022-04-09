@@ -1,0 +1,50 @@
+{
+  "applications": "*",
+  "changelogDate": "20220407203052",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "stocks",
+  "fields": [
+    {
+      "fieldName": "stockname",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "market",
+      "fieldType": "Market",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "NSE,BSE"
+    },
+    {
+      "fieldName": "highPrice",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lowPrice",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "buyPrice",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Stocks",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "stocks",
+      "relationshipName": "user",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

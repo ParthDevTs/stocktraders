@@ -33,7 +33,8 @@
               "src/main/webapp/content",
               "src/main/webapp/favicon.ico",
               "src/main/webapp/manifest.webapp",
-              "src/main/webapp/robots.txt"
+              "src/main/webapp/robots.txt",
+              "src/main/webapp/assets"
             ],
             "styles": ["src/main/webapp/content/scss/vendor.scss", "src/main/webapp/content/scss/global.scss"],
             "scripts": []

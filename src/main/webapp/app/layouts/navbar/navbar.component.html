@@ -3,7 +3,7 @@
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
       <span class="logo-img"></span>
       <span class="navbar-title">Stocktraders</span>
-      <span class="navbar-version">{{ version }}</span>
+      <!-- <span class="navbar-version">{{ version }}</span> -->
     </a>
     <a
       class="navbar-toggler d-lg-none"
@@ -36,15 +36,27 @@
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu" data-cy="entity">
+          <a class="nav-link" routerLink="stocks" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             <span>
               <fa-icon icon="th-list"></fa-icon>
-              <span>Entities</span>
+              <span>Stocks</span>
             </span>
           </a>
-          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
-            <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
-          </ul>
+          <!-- <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="stocks"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                (click)="collapseNavbar()"
+              >
+                <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                <span>Stocks</span>
+              </a>
+            </li>
+        
+          </ul> -->
         </li>
         <li
           *jhiHasAnyAuthority="'ROLE_ADMIN'"

@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="stocks">
+      <h2 data-cy="stocksDetailsHeading"><span>Stocks</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ stocks.id }}</span>
+        </dd>
+        <dt><span>Stockname</span></dt>
+        <dd>
+          <span>{{ stocks.stockname }}</span>
+        </dd>
+        <dt><span>Market</span></dt>
+        <dd>
+          <span>{{ stocks.market }}</span>
+        </dd>
+        <dt><span>High Price</span></dt>
+        <dd>
+          <span>{{ stocks.highPrice }}</span>
+        </dd>
+        <dt><span>Low Price</span></dt>
+        <dd>
+          <span>{{ stocks.lowPrice }}</span>
+        </dd>
+        <dt><span>Buy Price</span></dt>
+        <dd>
+          <span>{{ stocks.buyPrice }}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+          <span>{{ stocks.user?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/stocks', stocks.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

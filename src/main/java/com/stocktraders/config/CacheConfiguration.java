@@ -51,6 +51,7 @@ public class CacheConfiguration {
             createCache(cm, com.stocktraders.domain.User.class.getName());
             createCache(cm, com.stocktraders.domain.Authority.class.getName());
             createCache(cm, com.stocktraders.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.stocktraders.domain.Stocks.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

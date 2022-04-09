@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  height: 20vh;
+
+  flex-basis: 50%;
+
+  background-color: rgb(15, 15, 15);
+
+  gap: 5rem;
+
+  p {
+    color: white;
+  }
+
+  .img__container {
+    height: 4rem;
+
+    img {
+      height: 100%;
+    }
+  }
+}
