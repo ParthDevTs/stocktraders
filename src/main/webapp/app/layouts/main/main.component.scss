@@ -1,3 +1,14 @@
+$main-color: rgb(22, 22, 22);
+
 .footer {
   width: 100%;
+}
+
+.container-fluid {
+  background-color: $main-color;
+}
+
+.card {
+  background-color: $main-color;
+  margin-top: 0;
 }
